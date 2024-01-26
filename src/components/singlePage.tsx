@@ -22,7 +22,7 @@ const SinglePage = () => {
 if (!Array.isArray(country))  return <div>asdsad</div>
 
     const [singleCountry] =  country
-    const {flags , name, region, subregion, capital, tld, currencies, borders} = singleCountry
+    const {flags , name, region, subregion, capital, tld, currencies, borders, maps} = singleCountry
 
     console.log(singleCountry,'singleCountry')
 
@@ -49,7 +49,7 @@ if (!Array.isArray(country))  return <div>asdsad</div>
                     </div>
                     <div className={`w-[100%] md:w-1/2 mt-8 md:m-0 ${changeMode? 'text-[#fafafa]' : 'text-[#273039]]' } `}>
                         <h2 className='mb-10 md:mb-20 font-bold text-2xl'>{name.common}</h2>
-                        <div className='md:flex '>
+                        <div className='md:flex mb-10 md:mb-0 '>
                             <div className='mb-10 md:mr-40'>
                                 <p className='mb-5' >Population: <span className='text-[#a9a9a9]' >{population(singleCountry.population)}</span></p>
                                 <p className='mb-5' >Region: <span className='text-[#a9a9a9]' >{region}</span></p>
@@ -60,7 +60,7 @@ if (!Array.isArray(country))  return <div>asdsad</div>
                                 {!!tld.length && <p className='mb-5'>Top Level Domain: <span
                                     className='text-[#a9a9a9]'>{tld[0]}</span></p>}
                                 <p className='mb-5' >Currencies: <span className='text-[#a9a9a9]' >{currencies[currency].name}  ( {currencies[currency].symbol} )</span></p>
-                                <p>Languages:
+                                <p className='mb-5' >Languages:
                                     {
                                         languages.map(language => <span
                                             key={language}
@@ -69,7 +69,7 @@ if (!Array.isArray(country))  return <div>asdsad</div>
                                                 {singleCountry.languages[language]}</span>)
                                     }
                                 </p>
-
+                                <a href={maps.googleMaps} target='_blank' >Google Maps: <span className='text-[#a9a9a9]' >{name.common}</span></a>
                             </div>
                         </div>
                         <div className='flex '>
